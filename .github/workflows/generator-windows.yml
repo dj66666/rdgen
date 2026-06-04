@@ -88,7 +88,9 @@ jobs:
           import os
           import json
           import time
+          import sys
 
+          sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
           for attempt in range(5):
             try:
               print(f"Downloading secrets (Attempt {attempt + 1})...")
