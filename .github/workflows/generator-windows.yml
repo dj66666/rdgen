@@ -114,7 +114,7 @@ jobs:
             print(f"Error: Could not decrypt ZIP. Check if password matches. {e}")
             exit(1)
 
-          with open(os.environ['GITHUB_ENV'], 'a') as env_file:
+          with open(os.environ['GITHUB_ENV'], 'a', encoding='utf-8') as env_file:
             for key, value in secrets.items():
               print(f"::add-mask::{value}")
               env_file.write(f"{key}={value}\n")
